@@ -38,6 +38,8 @@ cat << EOF > /root/extensions/klipper/start.sh
 python3 /klipper/klippy/klippy.py /root/printer.cfg -l /tmp/klippy.log -a /tmp/klippy_uds
 EOF
 
+# Auto Install: https://plugins.octoprint.org/plugins/klipper/
+
 cat << EOF > /root/extensions/klipper/kill.sh
 #!/bin/sh
 pkill -f 'klippy\.py'

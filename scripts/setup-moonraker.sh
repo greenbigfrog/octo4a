@@ -50,7 +50,7 @@ EOF
 
 cat << EOF > /root/extensions/moonraker/start.sh
 #!/bin/sh
-LD_PRELOAD=/home/octoprint/ioctlHook.so python3 /moonraker/moonraker/moonraker.py -c /moonraker.conf -n
+LD_PRELOAD=/home/octoprint/ioctlHook.so python3 /moonraker/moonraker/moonraker.py -c /moonraker.conf -l /tmp/moonraker.log
 EOF
 
 cat << EOF > /root/extensions/moonraker/kill.sh
@@ -61,6 +61,11 @@ chmod +x /root/extensions/moonraker/start.sh
 chmod +x /root/extensions/moonraker/kill.sh
 chmod 777 /root/extensions/moonraker/start.sh
 chmod 777 /root/extensions/moonraker/kill.sh
+
+mkdir /root/gcode_files
+# printer.cfg:
+# [virtual_sdcard]
+# path: ~/gcode_files
 
 cat << EOF ${COL}
 Moonraker installed!
